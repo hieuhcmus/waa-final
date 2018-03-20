@@ -43,14 +43,7 @@
                 <f:facet name="header">Model (Capacity)</f:facet>
                 <h:outputText value="#{flight.airplane.model}(#{flight.airplane.capacity})" />
             </h:column>
-            <h:column>
-                <f:facet name="header">Update</f:facet>
-                <h:commandButton action="#{flightBean.editFlightRecord(flight.id)}" value="Update" class="btn btn-primary" />
-            </h:column>
         </h:dataTable>
-        <center>
-            <h:commandButton action="createFlight.xhtml?faces-redirect=true" value="New Flight" class="btn btn-success btnSpace" />
-        </center>
     </h:form>
 </f:view>
 </html>
