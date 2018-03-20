@@ -12,32 +12,35 @@
 </h:head>
 <f:view>
     <ui:include src="navbar.xhtml"/>
-    <center><h2><h:outputText value="Airplanes"/></h2></center>
-    <h:form id="airplaneForm">
-        <h:dataTable id="airplaneTable" binding="#{table}" value="#{airplaneBean.getAirplanes()}" var="airplane" class="table table-striped table-hover table-bordered tableUpdated">
+    <center><h2><h:outputText value="Airline"/></h2></center>
+    <h:form id="airlineForm">
+        <h:dataTable id="airlineTable" binding="#{table}" value="#{airlineBean.getAirlines()}" var="airline" class="table table-striped table-hover table-bordered tableUpdated">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 <h:outputText value="#{table.rowIndex + 1}" />
             </h:column>
             <h:column>
-                <f:facet name="header">AirPlane SerialNo</f:facet>
-                <h:outputText value="#{airplane.serialnr}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">AirPlane Model</f:facet>
-                <h:outputText value="#{airplane.model}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Capacity</f:facet>
-                <h:outputText value="#{airplane.capacity}" />
+                <f:facet name="header">Airline Name</f:facet>
+                <h:outputText value="#{airline.name}" />
             </h:column>
             <!--<h:column>-->
-                <!--<f:facet name="header">Country</f:facet>-->
-                <!--<h:outputText value="#{airplane.country}" />-->
+                <!--<f:facet name="header">Flights</f:facet>-->
+                <!--<h:outputText value="#{airline.flights}" />-->
             <!--</h:column>-->
             <h:column>
+                <f:facet name="header">Flights</f:facet>
+            <ul>
+                <ui:repeat value="#{airline.flights}" var="flight">
+                    <li>
+                        <h:outputText value="#{flight.flightnr}" />
+                    </li>
+                </ui:repeat>
+            </ul>
+            </h:column>
+
+            <h:column>
                 <f:facet name="header">Update</f:facet>
-                <h:commandButton action="#{airplaneBean.editAirplaneRecord(airplane.id)}" value="Update" class="btn btn-primary" />
+                <h:commandButton action="#{airlineBean.editAirlineRecord(airline.id)}" value="Update" class="btn btn-primary" />
             </h:column>
             <!--<h:column>-->
             <!--<f:facet name="header">Delete</f:facet>-->
@@ -45,7 +48,7 @@
             <!--</h:column>-->
         </h:dataTable>
         <center>
-            <h:commandButton action="createAirplane.xhtml?faces-redirect=true" value="Create New Airplane" class="btn btn-success btnSpace" />
+            <h:commandButton action="createAirline.xhtml?faces-redirect=true" value="Create New Airplane" class="btn btn-success btnSpace" />
         </center>
     </h:form>
 </f:view>
