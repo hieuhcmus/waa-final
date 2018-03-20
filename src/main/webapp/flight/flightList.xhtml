@@ -24,11 +24,17 @@
             <p:column headerText="Airline" filterBy="#{flight.airline.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.airline.name}" />
             </p:column>
-            <p:column headerText="Departing">
+            <p:column headerText="Departure Time" filterBy="#{flight.departureTime}" filterMatchMode="contains">
                 <h:outputText value="#{flight.departureTime}" />
             </p:column>
-            <p:column headerText="Arriving">
+            <p:column headerText="Departure Date" filterBy="#{flight.departureDate}" filterMatchMode="contains">
+                <h:outputText value="#{flight.departureDate}" />
+            </p:column>
+            <p:column headerText="Arrival Time" filterBy="#{flight.arrivalTime}" filterMatchMode="contains">
                 <h:outputText value="#{flight.arrivalTime}" />
+            </p:column>
+            <p:column headerText="Arrival Date" filterBy="#{flight.arrivalDate}" filterMatchMode="contains">
+                <h:outputText value="#{flight.arrivalDate}" />
             </p:column>
             <p:column headerText="Origin" filterBy="#{flight.origin.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.origin.name}(#{flight.origin.airportcode})" />
