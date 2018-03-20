@@ -18,6 +18,7 @@ public class FlightBean {
 	private FlightService flightService;
 	private Flight flight = new Flight();
 	private List<Flight> flights;
+	private List<Flight> filteredFlights;
 
 	@PostConstruct
 	public void init() {
@@ -48,5 +49,13 @@ public class FlightBean {
 	public String updateFlight(Flight flight) {
 		flightService.update(flight);
 		return "flightList.xhtml?faces-redirect=true";
+	}
+
+	public List<Flight> getFilteredFlights() {
+		return filteredFlights;
+	}
+
+	public void setFilteredFlights(List<Flight> filteredFlights) {
+		this.filteredFlights = filteredFlights;
 	}
 }

@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <h:outputStylesheet library="css" name="/bootstrap-4/css/bootstrap.min.css" />
     <h:outputStylesheet library="css" name="main.css" />
@@ -14,36 +15,31 @@
     <ui:include src="../navbar.xhtml"/>
     <center><h2><h:outputText value="Flights"/></h2></center>
     <h:form id="flightForm">
-        <h:dataTable id="flightTable" binding="#{table}" value="#{flightBean.getFlights()}" var="flight" class="table table-striped table-hover table-bordered tableUpdated">
-            <h:column>
-                <f:facet name="header">Flight Number</f:facet>
+        <p:dataTable class="table table-striped table-hover table-bordered tableUpdated"
+                     id="flightTable" binding="#{table}" value="#{flightBean.getFlights()}" var="flight" widgetVar="flightsTable"
+                     emptyMessage="No flights found with given criteria" filteredValue="#{flightBean.filteredFlights}">
+            <p:column headerText="Flight Number">
                 <h:outputText value="#{flight.flightnr}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Airline</f:facet>
+            </p:column>
+            <p:column headerText="Airline" filterBy="#{flight.airline.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.airline.name}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Departing</f:facet>
+            </p:column>
+            <p:column headerText="Departing">
                 <h:outputText value="#{flight.departureTime}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Arriving</f:facet>
+            </p:column>
+            <p:column headerText="Arriving">
                 <h:outputText value="#{flight.arrivalTime}" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Origin</f:facet>
+            </p:column>
+            <p:column headerText="Origin" filterBy="#{flight.origin.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.origin.name}(#{flight.origin.airportcode})" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Destination</f:facet>
+            </p:column>
+            <p:column headerText="Destination" filterBy="#{flight.destination.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.destination.name}(#{flight.destination.airportcode})" />
-            </h:column>
-            <h:column>
-                <f:facet name="header">Model (Capacity)</f:facet>
+            </p:column>
+            <p:column headerText="Model (Capacity)">
                 <h:outputText value="#{flight.airplane.model}(#{flight.airplane.capacity})" />
-            </h:column>
-        </h:dataTable>
+            </p:column>
+        </p:dataTable>
     </h:form>
 </f:view>
 </html>
