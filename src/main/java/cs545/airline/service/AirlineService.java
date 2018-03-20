@@ -30,6 +30,11 @@ public class AirlineService {
 		airlineDao.delete(airline);
 	}
 
+	public void delete(long id) {
+		Airline airline = findById(id);
+		delete(airline);
+	}
+
 	public Airline update(Airline airline) {
 		return airlineDao.update(airline);
 	}

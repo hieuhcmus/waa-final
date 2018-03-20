@@ -45,7 +45,7 @@ public class Flight {
 	}
 
 	public Flight(String flightnr, String departureDate, String departureTime,
-			String arrivalDate, String arrivalTime) {
+	              String arrivalDate, String arrivalTime) {
 		this.flightnr = flightnr;
 		setDepartureDate(departureDate);
 		setDepartureTime(departureTime);
@@ -54,8 +54,8 @@ public class Flight {
 	}
 
 	public Flight(String flightnr, String departureDate, String departureTime,
-			String arrivalDate, String arrivalTime, Airline airline,
-			Airport origin, Airport destination, Airplane airplane) {
+	              String arrivalDate, String arrivalTime, Airline airline,
+	              Airport origin, Airport destination, Airplane airplane) {
 		this.flightnr = flightnr;
 		setDepartureDate(departureDate);
 		setDepartureTime(departureTime);

@@ -30,12 +30,21 @@ public class AirplaneService {
 		airplaneDao.delete(airplane);
 	}
 
+	public void delete(long id) {
+		Airplane airplane = findById(id);
+		airplaneDao.delete(airplane);
+	}
+
 	public Airplane update(Airplane airplane) {
 		return airplaneDao.update(airplane);
 	}
 
 	public Airplane find(Airplane airplane) {
 		return airplaneDao.findOne(airplane.getId());
+	}
+
+	public Airplane findById(long id) {
+		return airplaneDao.findOne(id);
 	}
 
 	public Airplane findBySrlnr(String serialno) {

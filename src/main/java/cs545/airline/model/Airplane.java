@@ -1,5 +1,7 @@
 package cs545.airline.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(uniqueConstraints=@UniqueConstraint(columnNames={"serialnr"}))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"serialnr"}))
 public class Airplane {
 
 	@Id
@@ -24,7 +26,9 @@ public class Airplane {
 	private String serialnr;
 	private String model;
 	private int capacity;
-	@OneToMany(mappedBy="airplane", cascade= CascadeType.ALL)
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "airplane", cascade = CascadeType.ALL)
 	@OrderBy("departureDate, departureTime")
 	private List<Flight> flights = new ArrayList<>();
 
@@ -77,13 +81,13 @@ public class Airplane {
 
 	/* Collection Methods */
 	public boolean addFlight(Flight flight) {
-		boolean success =  (!flights.contains(flight)) && (flights.add(flight));
+		boolean success = (!flights.contains(flight)) && (flights.add(flight));
 		if (success) {
 			flight.setAirplane(this);
 		}
 		return success;
 	}
-	
+
 	public boolean removeFlight(Flight flight) {
 		boolean success = false;
 		if (flights.remove(flight)) {

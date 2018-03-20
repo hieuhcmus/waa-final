@@ -30,12 +30,21 @@ public class AirportService {
 		airportDao.delete(airport);
 	}
 
+	public void delete(long id) {
+		Airport airport = airportDao.findOne(id);
+		airportDao.delete(airport);
+	}
+
 	public Airport update(Airport airport) {
 		return airportDao.update(airport);
 	}
 		
 	public Airport find(Airport airport) {
 		return airportDao.findOne(airport.getId());
+	}
+
+	public Airport findById(long id) {
+		return airportDao.findOne(id);
 	}
 
 	public Airport findByCode(String airportcode) {

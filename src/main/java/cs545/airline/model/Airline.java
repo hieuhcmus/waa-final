@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(uniqueConstraints=@UniqueConstraint(name="Airline_Name",columnNames={"name"}))
+@Table(uniqueConstraints = @UniqueConstraint(name = "Airline_Name", columnNames = {"name"}))
 public class Airline {
 	@Id
 	@GeneratedValue
@@ -24,7 +24,7 @@ public class Airline {
 
 	private String name;
 
-	@OneToMany(mappedBy = "airline", cascade= CascadeType.ALL)
+	@OneToMany(mappedBy = "airline", cascade = CascadeType.ALL)
 	@OrderBy("departureDate, departureTime")
 	@JsonIgnore
 	private List<Flight> flights = new ArrayList<>();
@@ -57,10 +57,10 @@ public class Airline {
 	public List<Flight> getFlights() {
 		return Collections.unmodifiableList(flights);
 	}
-	
+
 	/* Collections Methods */
 	public boolean addFlight(Flight flight) {
-		boolean success =  (!flights.contains(flight)) && (flights.add(flight));
+		boolean success = (!flights.contains(flight)) && (flights.add(flight));
 		if (success) {
 			flight.setAirline(this);
 		}

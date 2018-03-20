@@ -33,4 +33,11 @@ public class AirlineRestService {
 	public Airline getAirline(@PathParam("id") long id) {
 		return airlineService.findById(id);
 	}
+
+	@ApiOperation(value = "Delete an Airline by given id", notes = "Delete an Airline by given id", response = Airline.class)
+	@Path("/{id}")
+	@DELETE
+	public void deleteAirline(@PathParam("id") long id) {
+		airlineService.delete(id);
+	}
 }

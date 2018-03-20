@@ -43,6 +43,10 @@ public class FlightService {
 		return flightDao.findOne(flight.getId());
 	}
 
+	public Flight findById(long id) {
+		return flightDao.findOne(id);
+	}
+
 	public List<Flight> findByNumber(String flightnr) {
 		return flightDao.findByFlightnr(flightnr);
 	}
