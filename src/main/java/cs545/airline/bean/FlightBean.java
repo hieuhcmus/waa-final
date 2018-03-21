@@ -5,15 +5,18 @@ import cs545.airline.service.FlightService;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 @Named
-@RequestScoped
-public class FlightBean {
+//@RequestScoped
+@SessionScoped
+public class FlightBean implements Serializable {
 	@Inject
 	private FlightService flightService;
 	private Flight flight = new Flight();
