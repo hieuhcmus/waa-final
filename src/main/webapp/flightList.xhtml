@@ -15,6 +15,9 @@
     <ui:include src="navbar.xhtml"/>
     <center><h2><h:outputText value="Flights"/></h2></center>
     <h:form id="flightForm">
+        <center>
+            <h:commandButton action="createFlight.xhtml?faces-redirect=true" value="Create New Flight" class="btn btn-success btnSpace" />
+        </center>
         <p:dataTable class="table table-striped table-hover table-bordered tableUpdated"
                      id="flightTable" binding="#{table}" value="#{flightBean.getFlights()}" var="flight" widgetVar="flightsTable"
                      emptyMessage="No flights found with given criteria" filteredValue="#{flightBean.filteredFlights}">

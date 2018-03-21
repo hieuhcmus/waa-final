@@ -14,7 +14,11 @@
     <ui:include src="navbar.xhtml"/>
     <center><h2><h:outputText value="Airline"/></h2></center>
     <h:form id="airlineForm">
-        <h:dataTable id="airlineTable" binding="#{table}" value="#{airlineBean.getAirlines()}" var="airline" class="table table-striped table-hover table-bordered tableUpdated">
+        <h:column>
+            <f:facet name="header">Add Flight</f:facet>
+            <h:commandLink action="createFlight.xhtml?faces-redirect=true" value="Add Flight" class="btn btn-success btnSpace" />
+        </h:column>
+        <h:dataTable id="airlineTable" binding="#{table}" value="#{airlineBean.airlines}" var="airline" class="table table-striped table-hover table-bordered tableUpdated">
             <h:column>
                 <f:facet name="header">Id</f:facet>
                 <h:outputText value="#{table.rowIndex + 1}" />
@@ -37,7 +41,6 @@
                 </ui:repeat>
             </ul>
             </h:column>
-
             <h:column>
                 <f:facet name="header">Update</f:facet>
                 <h:commandButton action="#{airlineBean.editAirlineRecord(airline.id)}" value="Update" class="btn btn-primary" />
@@ -48,7 +51,7 @@
             </h:column>
         </h:dataTable>
         <center>
-            <h:commandButton action="createAirline.xhtml?faces-redirect=true" value="Create New Airline" class="btn btn-success btnSpace" />
+            <h:commandButton action="createAirline.xhtml?faces-redirect=true" value="Create New Airline" class="btn btn-success btnSpace" /><br/>
         </center>
     </h:form>
 </f:view>

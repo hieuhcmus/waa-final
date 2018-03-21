@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 
+import cs545.airline.dao.AirlineDao;
 import cs545.airline.dao.FlightDao;
 import cs545.airline.model.Airline;
 import cs545.airline.model.Airplane;
@@ -21,12 +22,17 @@ public class FlightService {
 
 	@Inject
 	private FlightDao flightDao;
+	@Inject
+	private AirlineDao airlineDao;
 
 	// These services should be evaluated to reconsider which methods should be
 	// public
 
 	 public void create(Flight flight) {
-	 flightDao.create(flight);
+		 flightDao.create(flight);
+		 Airline airline1 = airlineDao.findOneByName(flight.getAirline().getName());
+		 airline1.addFlight(flight);
+		 airlineDao.update(airline1);
 	 }
 
 	// DELETE MUST BE DONE THROUGH UPDATE ON RELATED OBJECT

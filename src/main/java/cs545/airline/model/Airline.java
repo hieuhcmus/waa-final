@@ -76,5 +76,8 @@ public class Airline {
 		return success;
 	}
 
-
+	@Override
+	public String toString() {
+		return this.name;
+	}
 }

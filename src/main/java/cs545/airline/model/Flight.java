@@ -85,7 +85,10 @@ public class Flight {
 	}
 
 	public String getDepartureDate() {
-		return df.format(departureDate);
+		if(departureDate != null) {
+			return df.format(departureDate);
+		}
+		return "";
 	}
 
 	public void setDepartureDate(String departureDate) {
@@ -97,7 +100,10 @@ public class Flight {
 	}
 
 	public String getDepartureTime() {
-		return tf.format(departureTime);
+		if(departureTime != null) {
+			return tf.format(departureTime);
+		}
+		return "";
 	}
 
 	public void setDepartureTime(String departureTime) {
@@ -109,7 +115,10 @@ public class Flight {
 	}
 
 	public String getArrivalDate() {
-		return df.format(arrivalDate);
+		if(arrivalDate != null) {
+			return df.format(arrivalDate);
+		}
+		return "";
 	}
 
 	public void setArrivalDate(String arrivalDate) {
@@ -121,7 +130,10 @@ public class Flight {
 	}
 
 	public String getArrivalTime() {
-		return tf.format(arrivalTime);
+		if(arrivalTime != null) {
+			return tf.format(arrivalTime);
+		}
+		return "";
 	}
 
 	public void setArrivalTime(String arrivalTime) {
