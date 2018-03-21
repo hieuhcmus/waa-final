@@ -135,7 +135,7 @@
                         <apiSource>
                             <springmvc>false</springmvc>
                             <locations>cs545.airline.rs</locations>
-                            <schemes>http,https</schemes>
+                            <schemes>http</schemes>
                             <host>localhost:8080</host>
                             <basePath>/rest</basePath>
                             <info>
