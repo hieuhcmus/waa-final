@@ -42,8 +42,14 @@
             <p:column headerText="Destination" filterBy="#{flight.destination.name}" filterMatchMode="contains">
                 <h:outputText value="#{flight.destination.name}(#{flight.destination.airportcode})" />
             </p:column>
-            <p:column headerText="Model (Capacity)">
-                <h:outputText value="#{flight.airplane.model}(#{flight.airplane.capacity})" />
+            <p:column headerText="Model">
+                <h:outputText value="#{flight.airplane.model}" />
+            </p:column>
+            <p:column headerText="Capacity">
+                <h:outputText value="#{flight.airplane.capacity}" />
+            </p:column>
+            <p:column headerText="Update">
+                <h:commandButton action="#{flightBean.editFlightRecord(flight.id)}" value="Update" class="btn btn-primary" />
             </p:column>
         </p:dataTable>
     </h:form>
