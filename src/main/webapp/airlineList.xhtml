@@ -42,13 +42,13 @@
                 <f:facet name="header">Update</f:facet>
                 <h:commandButton action="#{airlineBean.editAirlineRecord(airline.id)}" value="Update" class="btn btn-primary" />
             </h:column>
-            <!--<h:column>-->
-            <!--<f:facet name="header">Delete</f:facet>-->
-            <!--<h:commandButton action="#{studentBean.deleteStudentRecord(student.id)}" value="Delete" class="btn btn-danger" />-->
-            <!--</h:column>-->
+            <h:column>
+            <f:facet name="header">Delete</f:facet>
+            <h:commandButton action="#{airlineBean.deleteAirline(airline.id)}" value="Delete" class="btn btn-danger" />
+            </h:column>
         </h:dataTable>
         <center>
-            <h:commandButton action="createAirline.xhtml?faces-redirect=true" value="Create New Airplane" class="btn btn-success btnSpace" />
+            <h:commandButton action="createAirline.xhtml?faces-redirect=true" value="Create New Airline" class="btn btn-success btnSpace" />
         </center>
     </h:form>
 </f:view>

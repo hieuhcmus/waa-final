@@ -22,6 +22,15 @@ import java.util.Map;
 public class AirlineBean {
     @Inject
     private AirlineService airlineService;
+
+    public Airline getAirline() {
+        return airline;
+    }
+
+    public void setAirline(Airline airline) {
+        this.airline = airline;
+    }
+
     private Airline airline = new Airline();
     private List<Airline> airlines;
     @Inject
@@ -64,6 +73,11 @@ public class AirlineBean {
 
     public String updateAirline(Airline airline) {
         airlineService.update(airline);
+        return "airlineList.xhtml?faces-redirect=true";
+    }
+
+    public String deleteAirline(long id) {
+        airlineService.delete(id);
         return "airlineList.xhtml?faces-redirect=true";
     }
 }
