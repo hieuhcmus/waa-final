@@ -32,10 +32,7 @@
             <ul>
                 <ui:repeat value="#{airline.flights}" var="flight">
                     <li>
-                        <!--<h:outputText value="#{flight.flightnr}" />-->
-                        <!--<h:form>-->
-                            <h:commandLink action="#{flightBean.editFlightRecord(flight.id)}" value="#{flight.flightnr}" />
-                        <!--</h:form>-->
+                        <h:commandLink action="#{flightBean.editFlightRecord(flight.id)}" value="#{flight.flightnr}" />
                     </li>
                 </ui:repeat>
             </ul>

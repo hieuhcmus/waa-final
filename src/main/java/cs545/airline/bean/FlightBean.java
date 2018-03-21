@@ -14,9 +14,8 @@ import java.util.List;
 import java.util.Map;
 
 @Named
-//@RequestScoped
-@SessionScoped
-public class FlightBean implements Serializable {
+@RequestScoped
+public class FlightBean {
 	@Inject
 	private FlightService flightService;
 	private Flight flight = new Flight();

@@ -18,9 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 @Named
-//@RequestScoped
-@SessionScoped
-public class AirlineBean implements Serializable{
+@RequestScoped
+public class AirlineBean {
     @Inject
     private AirlineService airlineService;
     private Airline airline = new Airline();
